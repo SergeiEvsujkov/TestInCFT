@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/code_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/start_dimen"
+        android:layout_marginTop="@dimen/text_dimen"
+        android:textColor="@color/text_color"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/code_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="AUD" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/code_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/big_text_dimen"
+        android:layout_marginTop="@dimen/text_dimen"
+        android:text="@string/code"
+        android:textColor="@color/text_color"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/code_currency"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/number_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_dimen"
+        android:layout_marginTop="@dimen/text_dimen"
+        android:textColor="@color/text_color"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/code_text"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="352" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name_currency"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_dimen"
+        android:layout_marginTop="@dimen/text_dimen"
+        android:maxLines="2"
+        android:textColor="@color/text_color"
+        app:layout_constraintEnd_toStartOf="@id/layout_value"
+        app:layout_constraintStart_toEndOf="@id/number"
+        app:layout_constraintTop_toBottomOf="@id/code_currency"
+        tools:text="Австралийский доллар" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_dimen"
+        android:textColor="@color/text_color"
+        app:layout_constraintStart_toStartOf="@id/code_currency"
+        app:layout_constraintTop_toBottomOf="@id/code_currency"
+        tools:text="1" />
+
+    <LinearLayout
+        android:id="@+id/layout_value"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/exchange_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_dimen"
+            android:layout_marginTop="@dimen/text_dimen"
+            android:text="@string/exchange"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/value_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_dimen"
+            android:layout_marginTop="@dimen/text_dimen"
+            android:textColor="@color/text_color"
+            tools:text="53.8642 руб" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_converter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layout_value"
+        android:visibility="gone">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_converter"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/big_text_dimen"
+            android:layout_marginTop="@dimen/start_dimen"
+            android:hint="@string/in_rubles"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_converter_into"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:gravity="end"
+                android:inputType="number"
+                app:errorEnabled="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/converter_result"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/big_text_dimen"
+            android:layout_marginTop="@dimen/big_text_dimen"
+            android:textSize="25dp"
+            android:textStyle="bold|italic"
+            android:gravity="end"
+            app:layout_constraintTop_toBottomOf="@+id/text_converter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/text_converter"
+            android:text="@string/not_converter" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/big_text_dimen"
+            android:layout_marginTop="@dimen/start_dimen"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:gravity="start"
+            app:layout_constraintTop_toBottomOf="@+id/text_converter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="=" />
+
+        <Button
+            android:id="@+id/result_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/get_result"
+            android:textSize="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintTop_toTopOf="@+id/text_converter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

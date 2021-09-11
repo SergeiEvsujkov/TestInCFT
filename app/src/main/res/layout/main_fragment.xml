@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:stateListAnimator="@animator/toolbar_elevation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/start_dimen"
+                android:fitsSystemWindows="true"
+                android:gravity="center"
+                android:src="@drawable/ic_header"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="15dp"
+                android:fitsSystemWindows="true"
+                android:gravity="center"
+                android:text="@string/world_currencies"
+                android:textSize="@dimen/header_text_size"
+                android:textStyle="bold" />
+
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/header_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:menu="@menu/menu_appbar" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
